@@ -1,13 +1,11 @@
 require 'test_helper'
 
-class UserControllerTest < ActionController::TestCase
-  test "should get index" do
-    get :index
-    assert_response :success
-  end
+class UsersControllerTest < ActionController::TestCase
 
-  test "should get show" do
-    get :show
+  setup { }
+  test "should show user" do
+    testUser = User.create!(username: "Bob", password: "GOOOBS", timezone: "Dallas, TX", )
+    get '/users/1'
     assert_response :success
   end
 

@@ -1,12 +1,11 @@
-class UserController < ApplicationController
-  skip_before_filter :verify_authenticity_token
+class UsersController < ApiController
   def index
     render json: User.all
   end
 
   def show
     user = User.find(params[:id])
-    render json: user
+    render json: user.as_json(include:[:contacts])
   end
 
   def create

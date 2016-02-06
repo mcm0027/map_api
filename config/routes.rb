@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
-  resources :user
+  resources :users, except: :index do
+    resources :contacts, only: [:create, :update, :destroy]
+  end
 
 
   # The priority is based upon order of creation: first created -> highest priority.
